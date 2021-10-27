@@ -1,0 +1,59 @@
+.hero {
+    text-align: center;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: sans-serif;
+  }
+
+  .card-style {
+    background-color: #0913a5ec !important;
+    color: white;
+    font-weight: bold;
+    font-size: large;
+}
+
+.logo {
+    height: 20px;
+    width: auto;
+    padding-right: 5px;
+}
+.button-po {
+    margin: 2.5px;
+    font-size: 15px;
+    width: 21vw;
+}
+
+.div-button-row
+{
+  position:absolute;
+  left:0;
+  width:10%;
+}
+.button-po-main {
+    margin-left: 1.5px;
+    font-size: 10px;
+    width: 3vw;
+}
+.po-studio-row {
+  position:absolute;
+  left:0;
+  width:100%;
+}
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  margin: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+  border: #0913a5ec;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}

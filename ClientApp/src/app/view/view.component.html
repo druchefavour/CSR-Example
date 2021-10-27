@@ -1,0 +1,586 @@
+<div *ngIf="givenName" class="col-12 mt-2">
+    <!--button (click)="logout()" class="btn btn-sm btn-outline-primary float-right">Logout</button-->
+    <h4>Welcome, {{givenName}}!</h4>
+</div>
+<div class="container px-4 py-5" id="hanging-icons" style="max-width: 1500px !important;">
+    <h2 class="pb-3 border-bottom">
+        <img src="../../assets/default.png" class="profile_image" />
+        {{firstName}} {{lastName}}<br />
+        <span style="font-size: 12px;">login: {{login}} | status: {{status | uppercase}}</span>
+        <button type="button" class="btn btn-link float-end mr-5" style="font-size: 16px;">
+            <a href="/">Back to Search</a>
+        </button>
+    </h2>
+
+    <div class="row">
+        <div class="att-table col-md-9">
+            <h3 class="att-table-title" style="margin-bottom: 20px;">
+                Attributes
+            </h3>
+            <div class="att-table-fieldset">
+                <div class="att-table-label">
+                    <label class="att-tabel-label2">First Name</label>
+                    <span class="att-table-explain">firstName</span>
+                </div>
+                <div class="att-table-value">{{firstName}}</div>
+            </div>
+            <div class="att-table-fieldset">
+                <div class="att-table-label">
+                    <label class="att-tabel-label2">Last Name</label>
+                    <span class="att-table-explain">lastName</span>
+                </div>
+                <div class="att-table-value">{{lastName}}</div>
+            </div>
+            <div class="att-table-fieldset">
+                <div class="att-table-label">
+                    <label class="att-tabel-label2">Username</label>
+                    <span class="att-table-explain">login</span>
+                </div>
+                <div class="att-table-value">{{login}}</div>
+            </div>
+            <div class="att-table-fieldset">
+                <div class="att-table-label">
+                    <label class="att-tabel-label2">Email</label>
+                    <span class="att-table-explain">email</span>
+                </div>
+                <div class="att-table-value">{{email}}</div>
+            </div>
+            <div class="att-table-fieldset">
+                <div class="att-table-label">
+                    <label class="att-tabel-label2">IBIS ID</label>
+                    <span class="att-table-explain">ibisid</span>
+                </div>
+                <div class="att-table-value">
+                    <div *ngIf="ibisid !== 'undefined'">
+                        {{ibisid}}
+                    </div>
+                </div>
+            </div>
+            <div class="att-table-fieldset">
+                <div class="att-table-label">
+                    <label class="att-tabel-label2">Street Address</label>
+                    <span class="att-table-explain">streetAddress</span>
+                </div>
+                <div class="att-table-value">
+                    <div *ngIf="streetAddress !== 'undefined'">
+                        {{streetAddress}}
+                    </div>
+                </div>
+            </div>
+            <div class="att-table-fieldset">
+                <div class="att-table-label">
+                    <label class="att-tabel-label2">City</label>
+                    <span class="att-table-explain">city</span>
+                </div>
+                <div class="att-table-value">
+                    <div *ngIf="city !== 'undefined'">
+                        {{city}}
+                    </div>
+                </div>
+            </div>
+            <div class="att-table-fieldset">
+                <div class="att-table-label">
+                    <label class="att-tabel-label2">State</label>
+                    <span class="att-table-explain">state</span>
+                </div>
+                <div class="att-table-value">
+                    <div *ngIf="state !== 'undefined'">
+                        {{state}}
+                    </div>
+                </div>
+            </div>
+            <div class="att-table-fieldset">
+                <div class="att-table-label">
+                    <label class="att-tabel-label2">Zip Code</label>
+                    <span class="att-table-explain">zipCode</span>
+                </div>
+                <div class="att-table-value">
+                    <div *ngIf="zipCode !== 'undefined'">
+                        {{zipCode}}
+                    </div>
+                </div>
+            </div>
+            <div class="att-table-fieldset">
+                <div class="att-table-label">
+                    <label class="att-tabel-label2">Primary Phone</label>
+                    <span class="att-table-explain">primaryPhone</span>
+                </div>
+                <div class="att-table-value">
+                    <div *ngIf="primaryPhone !== 'undefined'">
+                        {{primaryPhone}}
+                    </div>
+                </div>
+            </div>
+            <div class="att-table-fieldset">
+                <div class="att-table-label">
+                    <label class="att-tabel-label2">ID Proofing Status</label>
+                    <span class="att-table-explain">idproofing_status</span>
+                </div>
+                <div class="att-table-value">
+                    <div *ngIf="idproofing_status !== 'undefined'">
+                        {{idproofing_status}}
+                    </div>
+                </div>
+            </div>
+            <div class="att-table-fieldset">
+                <div class="att-table-label">
+                    <label class="att-tabel-label2">ID Proofing Score</label>
+                    <span class="att-table-explain">idproofing_score</span>
+                </div>
+                <div class="att-table-value">
+                    <div *ngIf="idproofing_score !== 'undefined'">
+                        {{idproofing_score}}
+                    </div>
+                </div>
+            </div>
+            <div class="att-table-fieldset">
+                <div class="att-table-label">
+                    <label class="att-tabel-label2">ID Proofing LOA</label>
+                    <span class="att-table-explain">idproofing_LOA</span>
+                </div>
+                <div class="att-table-value">
+                    <div *ngIf="idproofing_LOA !== 'undefined'">
+                        {{idproofing_LOA}}
+                    </div>
+                </div>
+            </div>
+            <div class="att-table-fieldset">
+                <div class="att-table-label">
+                    <label class="att-tabel-label2">Status</label>
+                    <span class="att-table-explain">status</span>
+                </div>
+                <div class="att-table-value">
+                    <div *ngIf="status !== 'undefined'">
+                        {{status}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--div class="col-md-3">
+            <div class="card" style="width: 18rem;">
+                <div class="card-header">
+                    User Functionalities
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item" style="cursor: pointer;" data-toggle="modal"
+                        data-target="#resetPasswordModal">Reset Password</li>
+                    <li *ngIf="status === 'LOCKED_OUT';" class="list-group-item" style="cursor: pointer;"
+                        data-toggle="modal" data-target="#unlockUserModal">Unlock User</li>
+                    <li *ngIf="ibisid !== 'undefined' && ibisid !== ''; else linkElseBlock" class="list-group-item"
+                        style="cursor: pointer;" data-toggle="modal" data-target="#unlinkUserToIbisModal">Unlink User
+                        from IBIS</li>
+                    <ng-template #linkElseBlock>
+                        <li class="list-group-item" style="cursor: pointer;" data-toggle="modal"
+                            data-target="#linkUserToIbisModal">Link User to IBIS</li>
+                    </ng-template-->
+
+                    <!-- <li class="list-group-item" style="cursor: pointer;" data-toggle="modal"
+                        data-target="#nullifyDLModal">Nullify Drivers License/State ID</li> -->
+
+                    <!--li *ngIf="status !== 'SUSPENDED'; else suspendElseBlock" class="list-group-item"
+                        style="cursor: pointer;" data-toggle="modal" data-target="#suspendUserModal">Suspend User</li>
+                    <ng-template #suspendElseBlock>
+                        <li class="list-group-item" style="cursor: pointer;" data-toggle="modal"
+                            data-target="#unsuspendUserModal">Un-suspend User</li>
+                    </ng-template>
+                    <li class="list-group-item" style="cursor: pointer;" data-toggle="modal"
+                        data-target="#clearMfaFactorsModal">Clear MFA Factors</li>
+                    <li class="list-group-item" style="cursor: pointer;" data-toggle="modal"
+                        data-target="#idProofingModal">Update ID Proofing Details</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div-->
+
+<div class="col-md-3">
+    <div class="card" style="width: 18rem;">
+        <div class="card-header">
+            User Functionalities
+        </div>
+        <ul class="list-group list-group-flush">
+            <li *ngIf="status === 'STAGED';else deProvisioned" class="list-group-item"
+                style="cursor: pointer;" data-toggle="modal" data-target="#sendActUserModal">Send Activation Email
+            </li>
+            <ng-template #deProvisioned>
+                <li *ngIf="status === 'DEPROVISIONED';else provisioned" class="list-group-item"
+                    style="cursor: pointer;" data-toggle="modal" data-target="#sendActUserModal">Send Activation Email 
+                </li>
+            </ng-template>
+            <ng-template #provisioned>
+                <li *ngIf="status === 'PROVISIONED';else resendActElseBlock"class="list-group-item"
+                    style="cursor: pointer;" data-toggle="modal" data-target="#resendActUserModal">Resend Activation Email 
+                </li>
+            </ng-template>
+            
+
+            <!--li *ngIf="status == 'STAGED' || status == 'DEPROVISIONED'; else resendActElseBlock" class="list-group-item"
+                style="cursor: pointer;" data-toggle="modal" data-target="#resendActUserModal">Send Activation Email
+            </li>
+            <li *ngIf="status == 'PROVISIONED'; else resendActElseBlock" class="list-group-item"
+                style="cursor: pointer;" data-toggle="modal" data-target="#resendActUserModal">Resend Activation Email
+            </li-->
+            <ng-template #resendActElseBlock>
+                <li class="list-group-item" style="cursor: pointer;" data-toggle="modal"
+                    data-target="#resetPasswordModal">Reset Password
+                </li>
+                <li *ngIf="ibis_id !== 'undefined' && ibis_id !== ''; else linkElseBlock" class="list-group-item"
+                style="cursor: pointer;" data-toggle="modal" data-target="#unlinkUserToIbisModal">Unlink User
+                from IBIS
+                </li>
+                <ng-template #linkElseBlock>
+                    <li class="list-group-item" style="cursor: pointer;" data-toggle="modal"
+                        data-target="#linkUserToIbisModal">Link User to IBIS
+                    </li>
+                </ng-template>
+                <li *ngIf="status === 'LOCKED_OUT';" class="list-group-item" style="cursor: pointer;"
+                data-toggle="modal" data-target="#unlockUserModal">Unlock User
+                </li>
+                <!--li class="list-group-item" style="cursor: pointer;" data-toggle="modal"
+                    data-target="#nullifyDLModal">Nullify Drivers License/State ID
+                </li-->
+
+                <li *ngIf="status !== 'SUSPENDED'; else suspendElseBlock" class="list-group-item"
+                    style="cursor: pointer;" data-toggle="modal" data-target="#suspendUserModal">Suspend User
+                </li>
+                <ng-template #suspendElseBlock>
+                    <li class="list-group-item" style="cursor: pointer;" data-toggle="modal"
+                        data-target="#unsuspendUserModal">Un-suspend User
+                    </li>
+                </ng-template>
+                    <li class="list-group-item" style="cursor: pointer;" data-toggle="modal"
+                        data-target="#clearMfaFactorsModal">Clear MFA Factors
+                    </li>
+                    <li class="list-group-item" style="cursor: pointer;" data-toggle="modal"
+                        data-target="#idProofingModal">Update ID Proofing Details
+                    </li>
+                </ng-template>
+            </ul>
+        </div>
+    </div>
+  </div>
+</div>
+
+<!-- Send Activation Email to User-->
+<div class="modal fade" data-backdrop="static" id="sendActUserModal" tabindex="-1"
+    aria-labelledby="sendActUserModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addUserModalLabel">Send Activation Email</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="text-align: left;">
+                Are you sure you want to send activation email to this user?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" #closeSendActButton
+                    id="closeSendActButton">Close</button>
+                <button type="submit" class="btn btn-primary" (click)="sendActivationEmail()">Send</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Resend Activation Email to User-->
+<div class="modal fade" data-backdrop="static" id="resendActUserModal" tabindex="-1"
+    aria-labelledby="resendActUserModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addUserModalLabel">Resend Activation Email</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="text-align: left;">
+                Are you sure you want to resend activation email to this user?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" #closeResendActButton
+                    id="closeResendActButton">Close</button>
+                <button type="submit" class="btn btn-primary" (click)="resendActivationEmail()">Resend</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Reset Password Modal -->
+<div class="modal fade" data-backdrop="static" id="resetPasswordModal" tabindex="-1"
+    aria-labelledby="resetPasswordModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addUserModalLabel">Reset Password</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="text-align: left; padding: 0px;">
+                <div class="card text-center" style="border: none;">
+                    <div class="card-header">
+                        <ul class="nav nav-tabs card-header-tabs">
+                            <li class="nav-item">
+                                <a class="nav-link {{passEmail}}" (click)="selectEmail()">Reset Password Email</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {{passTemp}}" (click)="selectTemp()">Set Temporary Password</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div *ngIf="passEmailShow; else elseBlock">
+                        <div class="card-body" style="margin: 20px 0px;">
+                            <p class="card-text">
+                                <button class="btn btn-primary" (click)="SendEmail()">Send Recovery Email</button>
+                            </p>
+                        </div>
+                    </div>
+                    <ng-template #elseBlock>
+                        <div class="card-body" style="margin: 20px 0px;">
+                            <input type="text" class="form-control" value="{{tempPassword}}" disabled
+                                style="float:'left'; width:'66%'" />
+                            <button class="btn btn-primary" (click)="setTempPassword()">Set Temporary
+                                Password</button>
+                        </div>
+                    </ng-template>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" #closeResetButton
+                    id="closeResetButton">Close</button>
+                <!-- <button type="submit" class="btn btn-primary">Reset</button> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Unlock User Modal -->
+<div class="modal fade" data-backdrop="static" id="unlockUserModal" tabindex="-1" aria-labelledby="unlockUserModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addUserModalLabel">Unlock User</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="text-align: left;">
+                Are you sure you want to unlock this user?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" #closeUnlockButton
+                    id="closeUnlockButton">Close</button>
+                <button type="submit" class="btn btn-primary" (click)="unlockUser()">Unlock</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Link User to IBIS Modal -->
+<div class="modal fade" data-backdrop="static" id="linkUserToIbisModal" tabindex="-1"
+    aria-labelledby="linkUserToIbisModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addUserModalLabel">Link User to IBIS</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form class="form-group" [formGroup]="linkForm" (ngSubmit)="linkUserToIbis()">
+                <div class="modal-body" style="text-align: left;margin: 20px 40px;">
+                    <input class="form-control" type="text" formControlName="ibisid"
+                        placeholder="Enter IBIS ID Here ..." />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" #closeLinkButton
+                        id="closeLinkButton">Close</button>
+                    <button type="submit" class="btn btn-primary">Link User</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Unlink User from IBIS Modal -->
+<div class="modal fade" data-backdrop="static" id="unlinkUserToIbisModal" tabindex="-1"
+    aria-labelledby="unlinkUserToIbisModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addUserModalLabel">Unlink User from IBIS</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="text-align: left;">
+                Are you sure you want to unlink this user from IBIS?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" #closeUnlinkButton
+                    id="closeUnlinkButton">Close</button>
+                <button type="submit" class="btn btn-primary" (click)="unlinkUserToIbis()">Unlink</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Nullify Drivers License Modal -->
+<!-- <div class="modal fade" data-backdrop="static" id="nullifyDLModal" tabindex="-1" aria-labelledby="nullifyDLModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addUserModalLabel">Nullify Drivers License/State ID</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="text-align: left;">
+                Are you sure you want to nullify this user's drivers license/state ID?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" #closeNullifyButton
+                    id="closeNullifyButton">Close</button>
+                <button type="submit" class="btn btn-primary" (click)="nullifyDL()">Nullify</button>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<!-- Suspend User Modal -->
+<div class="modal fade" data-backdrop="static" id="suspendUserModal" tabindex="-1"
+    aria-labelledby="suspendUserModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addUserModalLabel">Suspend User</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="text-align: left;">
+                Are you sure you want to suspend this user?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" #closeSuspendButton
+                    id="closeSuspendButton">Close</button>
+                <button type="submit" class="btn btn-primary" (click)="suspendUser()">Suspend</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Unsuspend User Modal -->
+<div class="modal fade" data-backdrop="static" id="unsuspendUserModal" tabindex="-1"
+    aria-labelledby="unsuspendUserModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addUserModalLabel">Unsuspend User</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="text-align: left;">
+                Are you sure you want to unsuspend this user?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" #closeUnsuspendButton
+                    id="closeUnsuspendButton">Close</button>
+                <button type="submit" class="btn btn-primary" (click)="unsuspendUser()">Unsuspend</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Clear MFA Factors Modal -->
+<div class="modal fade" data-backdrop="static" id="clearMfaFactorsModal" tabindex="-1"
+    aria-labelledby="clearMfaFactorsModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addUserModalLabel">Reset MFA Factors</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body form-group" style="text-align: left; padding: 30px 50px;">
+                <div *ngIf="smsExists" class="form-check">
+                    <input class="form-check-input" type="checkbox" formControlName="idsms"
+                        (change)="onSMSChange($event)" />
+                    <label class="form-check-label">SMS Authentication</label>
+                </div>
+                <div *ngIf="emailExists" class="form-check">
+                    <input class="form-check-input" type="checkbox" formControlName="idem"
+                        (change)="onEMChange($event)" />
+                    <label class="form-check-label">Email Authentication</label>
+                </div>
+                <div *ngIf="gaExists" class="form-check">
+                    <input class="form-check-input" type="checkbox" formControlName="idGA"
+                        (change)="onGAChange($event)" />
+                    <label class="form-check-label">Google Authenticator</label>
+                </div>
+                <div *ngIf="okverExists" class="form-check">
+                    <input class="form-check-input" type="checkbox" formControlName="okver"
+                        (change)="onOKChange($event)" />
+                    <label class="form-check-label">Okta Verify</label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" #closeClearButton
+                    id="closeClearButton">Close</button>
+                <button type="submit" class="btn btn-primary" (click)="clearFactors()">Reset Selected Factors</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Proofing Form Modal -->
+<div class="modal fade" data-backdrop="static" id="idProofingModal" tabindex="-1" aria-labelledby="idProofingModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addUserModalLabel">Update ID Proofing Details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form [formGroup]="proofingForm">
+                <div class="modal-body form-group" style="text-align: left; padding: 30px 50px;">
+                    <label class="form-label" style="width: 100%">
+                        ID Proofing Status
+                        <span style="float: right; width: 50%">IBIS Override</span>
+                    </label><br />
+                    <label class="form-label" style="width: 100%">
+                        ID Proofing Score
+                        <span style="float: right; width: 50%"></span>
+                    </label><br />
+                    <label class="form-label" style="width: 100%">
+                        ID Proofing LOA
+                        <span style="float: right; width: 50%">4</span>
+                    </label><br /><br />
+                    <label class="form-label">Date of Birth *</label>
+                    <input type="date" class="form-control" formControlName="dateofbirth" />
+                    <label class="form-label">SSN *</label>
+                    <input type="text" class="form-control" formControlName="SSN" placeholder="###-##-####"
+                        mask="000-00-0000" />
+                    <div *ngIf="!verifyValid; else submitBlock" style="text-align: right; color: rgb(255, 0, 0);">
+                        Please fill all * fields
+                    </div>
+                    <ng-template #submitBlock></ng-template>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" #closeProofingButton
+                        id="closeProofingButton">Close</button>
+                    <button type="submit" class="btn btn-primary" (click)="onProofingSubmit()">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

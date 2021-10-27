@@ -1,0 +1,165 @@
+<div *ngIf="givenName" class="col-12 mt-2">
+    <button (click)="logout()" class="btn btn-sm btn-outline-primary float-right">Logout</button>
+    <h4>Welcome, {{givenName}}!</h4>
+</div>
+<!--div class="card mt-2" *ngIf="!givenName">
+    <div class="card-body">
+        <button class="btn btn-primary" (click)="login()">Get Started</button>
+    </div>
+
+</div-->
+<hr>
+<div class="container px-4 py-5" id="hanging-icons">
+    <h2 class="pb-3 border-bottom">
+        Search Users
+        <a href="{{addUserURL}}" target="_blank" style="float: right; font-size: 16px;">
+            Add User
+        </a>
+    </h2>
+
+    <div class="row py-4">
+        <form class="form-group" [formGroup]="filterForm" (ngSubmit)="onSubmit()">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        First Name: <br />
+                        <input type="text" class="form-control" formControlName="firstName" />
+                    </div>
+                    <div class="col">
+                        Last Name: <br />
+                        <input type="text" class="form-control" formControlName="lastName" />
+                    </div>
+                    <div class="col">
+                        Login/Username: <br />
+                        <input type="text" class="form-control" formControlName="login" />
+                    </div>
+                    <div class="col">
+                        Email: <br />
+                        <input type="text" class="form-control" formControlName="email" />
+                    </div>
+                </div>
+                <div class="row" style="margin-top:15px">
+                    <div class="col">
+                        IBIS ID: <br />
+                        <input type="text" class="form-control" formControlName="ibis_id" />
+                    </div>
+                    <div class="col">
+                        City: <br />
+                        <input type="text" class="form-control" formControlName="city" />
+                    </div>
+                    <div class="col">
+                        State: <br />
+                        <input type="text" class="form-control" formControlName="state" />
+                    </div>
+                    <div class="col">
+                        ZIP: <br />
+                        <input type="text" class="form-control" formControlName="zipCode" />
+                    </div>
+                    <!-- <div class="col">
+                        DL/State ID: <br />
+                        <input type="text" class="form-control" formControlName="drivers_license" />
+                    </div> -->
+                    <div class="col">
+                        <button type="submit" class="btn btn-primary"
+                            style="margin-top: 15px; width: 100%;">Search</button><br />
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div *ngIf="!valid; else searchBlock" style="text-align: right; color: rgb(255, 0, 0);">Please fill 1 field for
+            Search**</div>
+        <ng-template #searchBlock></ng-template>
+        <div *ngIf="showEmpty; else recordsFound" style="color: rgb(134, 134, 134);">No Records Found</div>
+        <ng-template #recordsFound></ng-template>
+    </div>
+    <hr />
+    <div class="pt-3">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Login/Username</th>
+                    <th>Email</th>
+                    <th>IBIS ID</th>
+                    <th>Address</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of searchResults; let i=index">
+                    <td>{{user.profile.firstName}}</td>
+                    <td>{{user.profile.lastName}}</td>
+                    <td>{{user.profile.login}}</td>
+                    <td>{{user.profile.email}}</td>
+                    <td>{{user.profile.ibis_id}}</td>
+                    <td>
+                        <span
+                            *ngIf="user.profile.streetAddress === undefined && user.profile.city === undefined && user.profile.state === undefined && user.profile.zipCode === undefined; else elseBlock"
+                            style="color: rgb(134, 134, 134);">
+                            No Address Listed
+                        </span>
+                        <br />
+                        <ng-template #elseBlock>
+                            <span *ngIf="user.profile.streetAddress !== undefined">{{user.profile.streetAddress}}
+                            </span>
+                            <span *ngIf="user.profile.city !== undefined">{{user.profile.city}} </span>
+                            <span *ngIf="user.profile.state !== undefined">{{user.profile.state}} </span>
+                            <span *ngIf="user.profile.zipCode !== undefined">{{user.profile.zipCode}}</span>
+                        </ng-template>
+                    </td>
+                    <td style="text-align: center;">
+                        <button type="button" class="btn btn-primary" (click)="redirectToUser(user)">
+                            Details
+                        </button>
+                        <!-- <app-verify [user]="user"></app-verify> -->
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- <div style="text-align: right;">
+            <button class="btn btn-primary {{showMore}}" (click)="getMore()">Load More</button>
+        </div> -->
+
+        <ul class="pagination justify-content-end">
+            <li [ngClass]="{'page-item disabled' : count == 1}">
+                <a class="page-link" (click)="prevPage()">Previous</a>
+            </li>
+
+            <li [ngClass]="{'page-item active' : count == 1}">
+                <a *ngIf="results.length >= 1" class="page-link" (click)="selectPage(1)">1</a>
+            </li>
+            <li [ngClass]="{'page-item active' : count == 2}">
+                <a *ngIf="results.length >= 2" class="page-link" (click)="selectPage(2)">2</a>
+            </li>
+            <li [ngClass]="{'page-item active' : count == 3}">
+                <a *ngIf="results.length >= 3" class="page-link" (click)="selectPage(3)">3</a>
+            </li>
+            <li [ngClass]="{'page-item active' : count == 4}">
+                <a *ngIf="results.length >= 4" class="page-link" (click)="selectPage(4)">4</a>
+            </li>
+            <li [ngClass]="{'page-item active' : count == 5}">
+                <a *ngIf="results.length >= 5" class="page-link" (click)="selectPage(5)">5</a>
+            </li>
+            <li [ngClass]="{'page-item active' : count == 6}">
+                <a *ngIf="results.length >= 6" class="page-link" (click)="selectPage(6)">6</a>
+            </li>
+            <li [ngClass]="{'page-item active' : count == 7}">
+                <a *ngIf="results.length >= 7" class="page-link" (click)="selectPage(7)">7</a>
+            </li>
+            <li [ngClass]="{'page-item active' : count == 8}">
+                <a *ngIf="results.length >= 8" class="page-link" (click)="selectPage(8)">8</a>
+            </li>
+            <li [ngClass]="{'page-item active' : count == 9}">
+                <a *ngIf="results.length >= 9" class="page-link" (click)="selectPage(9)">9</a>
+            </li>
+            <li [ngClass]="{'page-item active' : count == 10}">
+                <a *ngIf="results.length >= 10" class="page-link" (click)="selectPage(10)">10</a>
+            </li>
+
+            <li [ngClass]="{'page-item disabled' : count == results.length}">
+                <a class="page-link" (click)="nextPage()">Next</a>
+            </li>
+        </ul>
+    </div>
+</div>

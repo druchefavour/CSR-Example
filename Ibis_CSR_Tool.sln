@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31321.278
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ibis_CSR_Tool", "Ibis_CSR_Tool.csproj", "{BC26AE23-1A04-40BA-A6F9-D62A058DB9CA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BC26AE23-1A04-40BA-A6F9-D62A058DB9CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC26AE23-1A04-40BA-A6F9-D62A058DB9CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC26AE23-1A04-40BA-A6F9-D62A058DB9CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC26AE23-1A04-40BA-A6F9-D62A058DB9CA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {611AFB7A-ABBA-41EF-B5D8-19D0C19E2731}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,88 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#verifyModal" (click)="handleShow(user)">
+    Verify
+</button>
+
+<!-- Modal -->
+<div *ngIf="showModal; else elseBlock">
+    <div class="modal fade" id="verifyModal" tabindex="-1" aria-labelledby="verifyModalLabel" data-backdrop="static"
+        data-keyboard="false" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="verifyModalLabel">Please Verify User {{"..."}}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="handleClose()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form class="form-group" [formGroup]="verifyForm" (ngSubmit)="handleVerifySubmit()">
+                    <div class="modal-body" style="text-align: left;">
+                        <!-- <div *ngIf="showDl && showQuestion; else selectBlock">
+                            <div>
+                                <select class="form-control" (change)="selectChangeHandler($event)">
+                                    <option value="dl">Driver's License</option>
+                                    <option value="sq">Security Question</option>
+                                </select>
+                            </div>
+                        </div> -->
+                        <!-- <ng-template #selectBlock></ng-template> -->
+                        <div class="container">
+                            <div class="row py-3">
+                                <div class="col">
+                                    User Login:
+                                </div>
+                                <div class="col">
+                                    {{userLogin}}<br />
+                                </div>
+                            </div>
+                            <!-- <div *ngIf="showDl && display === 'dl'; else displayElseBlock"> -->
+                            <div class="row">
+                                <div class="col">
+                                    Driver's License:
+                                </div>
+                                <div class="col">
+                                    <!-- <input type="password" class="form-control" formControlName="driversLiscense" /> -->
+                                    {{driversLicense}}
+                                    <br />
+                                </div>
+                            </div>
+                            <!-- </div> -->
+                            <!-- <ng-template #displayElseBlock>
+                                <div *ngIf="showQuestion && display === 'sq'; else display2ElseBlock">
+                                    <div class="row">
+                                        <div class="col">
+                                            Security Question:
+                                        </div>
+                                        <div class="col">
+                                            {{securityQuestion}}<br />
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            Security Answer:
+                                        </div>
+                                        <div class="col">
+                                            <input type="text" class="form-control"
+                                                formControlName="securityAnswer" /><br />
+                                        </div>
+                                    </div>
+                                </div>
+                                <ng-template #display2ElseBlock></ng-template>
+                            </ng-template> -->
+                            <div *ngIf="!verifyValid; else verifyBlock"
+                                style="text-align: right; color: rgb(255, 0, 0);">
+                                Verification failed**</div>
+                            <ng-template #verifyBlock></ng-template>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" #closeButton
+                            id="closeButton" (click)="handleClose()">Close</button>
+                        <button type="submit" class="btn btn-primary">Verify</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<ng-template #elseBlock></ng-template>
